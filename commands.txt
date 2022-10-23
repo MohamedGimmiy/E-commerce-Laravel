@@ -1,0 +1,5 @@
+// make a specific laravel project version (v8)
+// note mix in webpack contains sass to be compiled
+composer create-project laravel/laravel="5.1.*" myProject
+
+
