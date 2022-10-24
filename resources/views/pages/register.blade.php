@@ -9,14 +9,14 @@
                     @csrf
                     <div class="field">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe" class="@error('name') has-error @enderror">
+                        <input  type="text" name="name" id="name" placeholder="John Doe" value="{{old('name')}}" class="@error('name') has-error @enderror">
                         @error('name')
                             <span class="field-error">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="field">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="John@gmail.com" class="@error('email') has-error @enderror">
+                        <input type="email" name="email" id="email" placeholder="John@gmail.com" value="{{old('email')}}" class="@error('email') has-error @enderror">
                         @error('email')
                         <span class="field-error">{{$message}}</span>
                     @enderror
@@ -30,7 +30,10 @@
                     </div>
                     <div class="field">
                         <label for="password_confirmation">Confirm password</label>
-                        <input type="password" name="password_confirmation" id="name" placeholder="********">
+                        <input type="password" name="password_confirmation" id="name" placeholder="********" class="@error('password_confirmation') has-error @enderror">
+                        @error('password_confirmation')
+                        <span class="field-error">{{$message}}</span>
+                    @enderror
                     </div>
                     <div class="field">
                         <button type="submit" class="btn btn-primary btn-block">Register</button>

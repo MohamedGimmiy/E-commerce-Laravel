@@ -32,7 +32,23 @@ class AuthController extends Controller
         return back()->with('success', 'Successfully Logged in');
     }
     // login user
-
+    public function postLogin(Request $request)
+    {
+        // validate
+        $details = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        // login
+        if(Auth::attempt($details)){
+            // last route user tried to access or home
+            return redirect()->intended('/');
+        }
+        // return respose
+        return back()->withErrors([
+            'email' => 'invalid Login Details'
+        ]);
+    }
     // reset password
 
     //logout

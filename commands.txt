@@ -2,6 +2,11 @@
 // note mix in webpack contains sass to be compiled
 composer create-project laravel/laravel="5.1.*" myProject
 
+
+// resources (iconify svg images)
+https://icon-sets.iconify.design/bxs/shopping-bag-alt/
+
+
 // run migration after db setup
 php artisan migrate
 
