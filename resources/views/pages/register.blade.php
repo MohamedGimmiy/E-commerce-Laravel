@@ -5,7 +5,8 @@
         <div class="login-form-box">
             <div class="login-title">Register</div>
             <div class="login-form">
-                <form action="" method="post">
+                <form action="{{route('register')}}" method="post">
+                    @csrf
                     <div class="field">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" placeholder="John Doe">
