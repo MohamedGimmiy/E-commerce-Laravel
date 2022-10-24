@@ -9,15 +9,24 @@
                     @csrf
                     <div class="field">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe">
+                        <input type="text" name="name" id="name" placeholder="John Doe" class="@error('name') has-error @enderror">
+                        @error('name')
+                            <span class="field-error">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="field">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="John@gmail.com">
+                        <input type="email" name="email" id="email" placeholder="John@gmail.com" class="@error('email') has-error @enderror">
+                        @error('email')
+                        <span class="field-error">{{$message}}</span>
+                    @enderror
                     </div>
                     <div class="field">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="********">
+                        <input type="password" name="password" id="password" placeholder="********" class="@error('password') has-error @enderror">
+                        @error('password')
+                        <span class="field-error">{{$message}}</span>
+                    @enderror
                     </div>
                     <div class="field">
                         <label for="password_confirmation">Confirm password</label>

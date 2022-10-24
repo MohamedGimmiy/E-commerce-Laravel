@@ -149,3 +149,11 @@ body {
   border-radius: 200px;
   border: 1px solid #ddd;
 }
+.login-page .login-form-box .field input .has-error {
+  border-color: #e91e1e;
+}
+.login-page .login-form-box .field-error {
+  color: #e91e1e;
+  font-size: 13px;
+  margin-top: 2px;
+}
