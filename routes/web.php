@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 
@@ -16,3 +17,8 @@ use App\Http\Controllers\pagesController;
 
 Route::get('/', [pagesController::class, 'home'])->name('home');
 Route::get('cart', [pagesController::class, 'cart'])->name('cart');
+
+// Auth
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+

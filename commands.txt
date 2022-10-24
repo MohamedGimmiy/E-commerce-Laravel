@@ -2,4 +2,10 @@
 // note mix in webpack contains sass to be compiled
 composer create-project laravel/laravel="5.1.*" myProject
 
+// run migration after db setup
+php artisan migrate
+
+// create authentication from scratch
+php artisan make:controller AuthController
+
 

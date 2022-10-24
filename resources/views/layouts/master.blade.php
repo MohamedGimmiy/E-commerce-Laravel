@@ -10,8 +10,10 @@
 <body>
 
     @include('layouts.partials._nav')
-@yield('content')
-@include('layouts.partials._footer')
+    <main class="page">
+        @yield('content')
+    </main>
+    @include('layouts.partials._footer')
 
 </body>
 </html>
