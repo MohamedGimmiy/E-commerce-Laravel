@@ -28,3 +28,81 @@ body {
 .btn-block {
   width: 100%;
 }
+
+.admin-main {
+  margin-left: 300px;
+}
+.admin-main .page-title {
+  color: #6100ff;
+  margin-bottom: 15px;
+}
+
+.side-nav {
+  background: #6100ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  padding: 40px 0;
+  color: white;
+}
+.side-nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 20px;
+  border-bottom: 1px dashed grey;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+.side-nav .logo img {
+  height: 45px;
+  max-width: 100%;
+}
+.side-nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 5px;
+  padding: 0 10px;
+}
+.side-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 25px;
+  background-color: #4900c7;
+  border-radius: 3px;
+  font-weight: 200;
+  display: flex;
+  transition: all 0.1s ease;
+}
+.side-nav ul li a:hover {
+  background: #fff;
+  color: #6100ff;
+  font-weight: 500;
+  transform: skew(-15deg);
+}
+.side-nav .logout button {
+  background: rgba(255, 0, 0, 0.3411764706);
+  border: 1px solid rgba(255, 255, 255, 0.4784313725);
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 25px;
+  border-radius: 200px;
+  font-size: 12px;
+  transition: all 0.4s ease;
+  font-weight: 300;
+  font-style: italic;
+  cursor: pointer;
+}
+.side-nav .logout button:hover {
+  background: #e91e1e;
+}
