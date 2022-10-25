@@ -32,3 +32,8 @@ php artisan make:migration create_color_product_table
 // make model with controller
 php artisan make:model color -c
 
+// install bootstrap 5 with popper js
+npm install bootstrap@5 --save-dev
+npm install @popperjs/core --save-dev
+// then import it
+
