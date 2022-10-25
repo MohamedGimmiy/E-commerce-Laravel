@@ -10,7 +10,8 @@ class CategoryController extends Controller
     // index
     public function index()
     {
-        return view('admin.pages.categories.index');
+        $categories = Category::all();
+        return view('admin.pages.categories.index',compact('categories'));
     }
     public function store(Request $request)
     {
@@ -25,5 +26,10 @@ class CategoryController extends Controller
         $category->save();
         // return response
         return back()->with('success','Category saved');
+    }
+    public function destroy($id)
+    {
+        Category::findOrFail($id)->delete();
+        return back()->with('success','Category Deleted');
     }
 }
