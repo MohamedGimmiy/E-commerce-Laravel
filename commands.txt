@@ -24,3 +24,11 @@ php artisan migrate
 
 // make a middleware Admin
 php artisan make:middleware Admin
+
+php artisan make:migration create_products_table
+php artisan make:migration create_colors_table
+php artisan make:migration create_categories_table
+php artisan make:migration create_color_product_table
+// make model with controller
+php artisan make:model color -c
+
