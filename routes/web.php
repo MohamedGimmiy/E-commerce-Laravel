@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,16 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('login')->midd
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/adminpanel', [AdminController::class, 'dashboard'])->name('adminpanel')->middleware('admin');
+// AdminPanel group
+Route::group(['prefix' => 'adminpanel', 'middleware' => 'admin'],function (){
+
+    Route::get('/', [AdminController::class, 'dashboard'])->name('adminpanel');
+
+    // products
+    Route::group(['prefix' => 'products'], function (){
+        Route::get('/', [ProductController::class, 'index'])->name('adminpanel.products');
+        Route::get('/create', [ProductController::class, 'create'])->name('adminpanel.create');
+        Route::post('/create', [ProductController::class, 'store'])->name('adminpanel.store');
+    });
+
+});
