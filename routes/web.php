@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
@@ -29,3 +30,4 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('login')->midd
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
+Route::get('/adminpanel', [AdminController::class, 'dashboard'])->name('adminpanel')->middleware('auth');
