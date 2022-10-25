@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\ProductController;
@@ -49,6 +50,13 @@ Route::group(['prefix' => 'adminpanel', 'middleware' => 'admin'],function (){
         Route::get('/', [CategoryController::class, 'index'])->name('adminpanel.categories');
         Route::post('/', [CategoryController::class, 'store'])->name('adminpanel.category.store');
         Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('adminpanel.category.destroy');
+    });
+
+    // colors
+    Route::group(['prefix' => 'colors'], function (){
+        Route::get('/', [ColorsController::class, 'index'])->name('adminpanel.colors');
+        Route::post('/', [ColorsController::class, 'store'])->name('adminpanel.color.store');
+        Route::delete('/{id}', [ColorsController::class, 'destroy'])->name('adminpanel.color.destroy');
     });
 
 });
