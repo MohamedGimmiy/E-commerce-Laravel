@@ -16,3 +16,11 @@ php artisan make:controller AuthController
 
 php artisan make:controller AdminController
 
+// add column to exsiting table
+php artisan make:migration IsAdminToUsers --table=users
+
+// then run migrations
+php artisan migrate
+
+// make a middleware Admin
+php artisan make:middleware Admin
