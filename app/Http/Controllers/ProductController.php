@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Color;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -9,12 +12,16 @@ class ProductController extends Controller
     // Admin panel
     public function index()
     {
-        return view('admin.pages.products.index');
+
+        $products = Product::all();
+        return view('admin.pages.products.index',compact('products'));
     }
 
     public function create()
     {
-        return view('admin.pages.products.create');
+        $categories = Category::all();
+        $colors = Color::all();
+        return view('admin.pages.products.create',compact('categories','colors'));
     }
 
     public function store(Request $request)
