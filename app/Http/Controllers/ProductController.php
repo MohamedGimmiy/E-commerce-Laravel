@@ -13,7 +13,8 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::with('category')->orderBy('created_at', 'desc')->get();
+        $products = Product::with('category', 'colors')->orderBy('created_at', 'desc')->get();
+        
         return view('admin.pages.products.index',compact('products'));
     }
 
@@ -43,7 +44,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'price' => $request->price * 100, // convert dollar to cents (because of strip api)'
             'description' => $request->description,
-            'image' => $request->image_name
+            'image' => $image_name
         ]);
 
         // storing colors in colors_products table (many to many relationship)
@@ -53,7 +54,7 @@ class ProductController extends Controller
         return back()->with('success','Product Saved');
     }
 
-    public function edit()
+    public function edit($id)
     {
         return 'edit product';
     }
@@ -65,6 +66,8 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        return 'delete product';
+        Product::findOrFail($id)->delete();
+        return back()->with('success', 'Product Deleted');
+
     }
 }

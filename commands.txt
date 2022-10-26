@@ -37,3 +37,12 @@ npm install bootstrap@5 --save-dev
 npm install @popperjs/core --save-dev
 // then import it
 
+
+// create a symbolic link for storage to access storage folders
+php artisan storage:link
+
+
+
+
+
+

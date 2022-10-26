@@ -30,16 +30,28 @@
                                     <td>{{$product->title}}</td>
                                     <td>{{$product->price}}</td>
                                     <td>{{$product->category->name}}</td>
-                                    <td>-</td>
-                                    <td>-</td>  
+                                    <td>
+                                        @foreach ($product->colors as $color)
+                                            <span class="badge" style="background: {{$color->code}}">
+                                                {{$color->name}}
+                                            </span>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <img src="{{asset('storage/' . $product->image)}}" alt="" style="height: 40px">
+                                    </td>  
                                     <td>{{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}</td>
                                     <td>
-                                        -
-{{--                                         <form action="{{route('adminpanel.color.destroy', $color->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form> --}}
+
+                                        <div class="d-flex" style="gap: 5px;">
+                                            <a href="{{route('adminpanel.products.edit', $product->id)}}" class="btn btn-secondary">Edit</a>
+                                            
+                                            <form action="{{route('adminpanel.products.destroy', $product->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
                                     </td>
 
                                 </tr>
