@@ -2,6 +2,9 @@
 @section('title','products')
 @section('content')
     <div class="container">
+        <div class="text-end mb-3">
+            <a href="{{route('adminpanel.products.create')}}" class="btn btn-primary">+ &nbsp; Create Product</a>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">

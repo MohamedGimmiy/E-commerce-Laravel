@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::all();
+        $products = Product::with('category')->orderBy('created_at', 'desc')->get();
         return view('admin.pages.products.index',compact('products'));
     }
 
@@ -26,7 +26,31 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        return 'save product';
+        // validate
+        $request->validate([
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'colors' => 'required',
+            'price' => 'required',
+            'image' => 'required|mimes:png,jpg,gif,svg|max:2048'
+        ]);
+        // store image
+        $image_name = 'products/' . time() . rand(0, 9999)  .'.' . $request->image->getClientOriginalExtension();
+        $request->image->storeAs('public', $image_name);
+        // store
+        $product = Product::create([
+            'title' => $request->title,
+            'category_id' => $request->category_id,
+            'price' => $request->price * 100, // convert dollar to cents (because of strip api)'
+            'description' => $request->description,
+            'image' => $request->image_name
+        ]);
+
+        // storing colors in colors_products table (many to many relationship)
+        $product->colors()->attach($request->colors);
+
+        // return response
+        return back()->with('success','Product Saved');
     }
 
     public function edit()

@@ -22,7 +22,7 @@ class Product extends Model
     // has one or many colors
     public function colors()
     {
-        return $this->hasMany(Color::class);
+        return $this->belongsToMany(Color::class);
     }
 }
 
