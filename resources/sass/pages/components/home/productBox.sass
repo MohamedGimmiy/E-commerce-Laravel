@@ -5,8 +5,14 @@
     box-shadow:  0 8px 40px 0 rgba(49, 32, 138, 5%)
     text-align: center
     max-width: 270px
+    text-decoration: none
+    transition: all 0.4s ease
+    &:hover
+        box-shadow: 0 10px 50px 2px rgba(0, 0, 0, 15%)
+        .image
+            background: linear-gradient(to bottom right, #6100ff, #d38eff)
 
-    img
+    .image
         background: #f6f7f8
         height: 230px
         width: 270px
@@ -15,10 +21,15 @@
         align-items: center
         justify-content: center
         margin-bottom: 10px
+        transition: all 0.3s  ease
+        img
+            max-width: 100%
+            max-height: 100%
+
 
     .product-title
         font-size: 18px
-        font-weight: 500
+        font-weight: 800
         color: $pink
         margin-bottom: 10px
 
@@ -45,4 +56,5 @@
         font-size: 20px
         font-weight: 800
         margin-bottom: 20px
+        color: $primary-dark
 
