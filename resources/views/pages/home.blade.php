@@ -9,7 +9,7 @@
                 <div class="products-row">
                     @foreach ($products as $product)
                         <x-product-box :product="$product" />
-
+                        
                     @endforeach
                 </div>
             </div>
