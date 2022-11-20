@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class pagesController extends Controller
@@ -9,7 +10,8 @@ class pagesController extends Controller
     // Home
     public function home()
     {
-        return view('pages.home');
+        $products = Product::with('category', 'colors')->orderBy('created_at', 'desc')->get();
+        return view('pages.home', compact('products'));
     }
     public function cart()
     {
