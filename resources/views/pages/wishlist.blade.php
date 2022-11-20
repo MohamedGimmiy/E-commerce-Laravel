@@ -1,5 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Cart')
+
+@section('title','Wishlist')
 @section('content')
-    cart page section
+    wishlist page section
 @endsection
