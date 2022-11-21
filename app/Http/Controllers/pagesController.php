@@ -15,6 +15,7 @@ class pagesController extends Controller
     }
     public function cart()
     {
+        //dd(session()->get('cart'));
         return view('pages.cart');
     }
     // Cart

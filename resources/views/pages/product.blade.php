@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('title', $product->title)
 @section('content')
+
+    @if (session()->has('addedToCart'))
+        {{session()->get('addedToCart')}}
+    @endif
     <div class="product-page">
         <div class="container">
             <div class="product-page-row">
