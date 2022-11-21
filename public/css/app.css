@@ -15,6 +15,7 @@ body {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -23,6 +24,16 @@ body {
 }
 .btn-primary:hover {
   background: #260064;
+}
+
+.btn-outline {
+  border: 1px solid #260064;
+  background: white;
+  color: #260064;
+}
+.btn-outline:hover {
+  background: #260064;
+  color: white;
 }
 
 .btn-block {
@@ -340,4 +351,33 @@ body {
   font-weight: 800;
   margin-bottom: 20px;
   color: #260064;
+}
+
+.pop-up {
+  background: rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+}
+.pop-up .pop-up-box {
+  padding: 100px;
+  text-align: center;
+  border-radius: 11px;
+}
+.pop-up .pop-up-box .pop-up-title {
+  color: #260064;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.pop-up .pop-up-box .pop-up-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

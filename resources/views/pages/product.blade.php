@@ -3,7 +3,17 @@
 @section('content')
 
     @if (session()->has('addedToCart'))
-        {{session()->get('addedToCart')}}
+        <section class="pop-up">
+            <div class="pop-up-box">
+                <div class="pop-up-title">
+                    {{session()->get('addedToCart')}}
+                </div>
+                <div class="pop-up-actions">
+                    <a href="{{route('home')}}" class="btn btn-outline">Continue Shopping</a>
+                    <a href="{{route('cart')}}" class="btn btn-primary">Go to Cart</a>
+                </div>
+            </div>
+        </section>
     @endif
     <div class="product-page">
         <div class="container">
