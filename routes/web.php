@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorsController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('cart', [pagesController::class, 'cart'])->name('cart');
 Route::get('wish-list', [pagesController::class, 'wishlist'])->name('wishlist');
 Route::get('account', [pagesController::class, 'account'])->name('account')->middleware('auth');
 Route::get('products/{id}', [pagesController::class, 'product'])->name('product');
+
+// Cart Routes
+Route::post('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('addToCart');
+
 
 // Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
