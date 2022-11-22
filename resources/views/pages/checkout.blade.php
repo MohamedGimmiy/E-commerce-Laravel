@@ -1,5 +1,29 @@
 @extends('layouts.master')
 @section('title', 'Checkout')
+@section('head')
+    <style>
+        #card-element{
+            border-radius: 20px;
+            border: 2px solid #ebe7e7;
+            padding: 10px 5px;
+        }
+
+        #card-button{
+            margin: 30px auto;
+            margin-bottom: 0px;
+        }
+        #card-button:hover{
+            margin: 30px auto;
+            margin-bottom: 0px;
+            border: 1px solid #6100ff;
+            background: white;
+            color: #6100ff;
+        }
+        
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{asset('js/stripe.js')}}"></script>
+@endsection
 @section('content')
     <header class="page-header">
         <h1>Checkout</h1>
@@ -9,7 +33,7 @@
     <main class="checkout-page">
         <div class="container">
             <div class="checkout-form">
-                <form action="" id="payment-form" method="POST">
+                <form action="{{route('stripeCheckout')}}" id="payment-form" method="POST">
                     @csrf
                     <div class="field">
                         <label for="name">Name</label>
@@ -79,8 +103,66 @@
                             <span class="field-error">{{$message}}</span>
                         @enderror
                     </div>
+                    <input type="hidden" name='payment_method_id' id="payment_method_id" value="">
+
+                    <div id="card-element"><!-- placeholder for Elements --></div>
+                    <button class="btn btn-primary btn-block" id="card-button">Submit Payment</button>
+                    <p id="payment-result"><!-- we'll pass the response from the server here --></p>
                 </form>
             </div>
         </div>
     </main>
+    <script>
+        const stripe = Stripe('yp5TRLS3CdUxjiurh5dCz8n2wzZtOQ2Iz7900fQ0qIydO');
+
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+
+
+
+        const form = document.getElementById("payment-form");
+
+        var resultContainer = document.getElementById('payment-result');
+        cardElement.on('change', function(event) {
+        if (event.error) {
+            resultContainer.textContent = event.error.message;
+        } else {
+            resultContainer.textContent = '';
+        }
+        });
+
+        form.addEventListener('submit', async event => {
+        event.preventDefault();
+        resultContainer.textContent = '';
+        const result = await stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+        });
+        handlePaymentMethodResult(result);
+        });
+
+        const handlePaymentMethodResult = async ({ paymentMethod, error }) => {
+        if (error) {
+            // An error happened when collecting card details, show error in payment form
+        } else {
+            // Send paymentMethod.id to your server (see Step 3)
+            // paymentMethod.id
+            document.getElementById('payment_method_id').value = paymentMethod.id;
+            form.submit();
+        }
+        };
+
+        const handleServerResponse = async responseJson => {
+        if (responseJson.error) {
+            // An error happened when charging the card, show it in the payment form
+            resultContainer.textContent = responseJson.error;
+        } else {
+            // Show a success message
+            resultContainer.textContent = 'Success!';
+        }
+        };
+
+    </script>
 @endsection

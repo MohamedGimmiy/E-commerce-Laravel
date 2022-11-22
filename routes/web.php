@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
@@ -25,6 +26,8 @@ Route::get('cart', [pagesController::class, 'cart'])->name('cart');
 Route::get('wish-list', [pagesController::class, 'wishlist'])->name('wishlist');
 Route::get('account', [pagesController::class, 'account'])->name('account')->middleware('auth');
 Route::get('checkout', [pagesController::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::post('stripe-checkout', [CheckoutController::class, 'stripeCheckout'])->name('stripeCheckout')->middleware('auth');
+
 Route::get('products/{id}', [pagesController::class, 'product'])->name('product');
 
 // Cart Routes

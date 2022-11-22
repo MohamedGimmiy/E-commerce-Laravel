@@ -67,7 +67,7 @@
                 </table>
             </div>
             <div class="cart-actions">
-                <a href="" class="btn btn-primary">Go to Checkout</a>
+                <a href="{{route('checkout')}}" class="btn btn-primary">Go to Checkout</a>
             </div>
         </div>
     </main>
