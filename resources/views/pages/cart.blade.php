@@ -42,6 +42,10 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                <tr class="cart-total">
+                                    <td colspan="4" style="text-align: right">Total</td>
+                                    <td>$99,99</td>
+                                </tr>
                         @else
                             <tr>
                                 <td colspan="6" class="empty-cart">Your Cart Is Empty</td>
@@ -49,6 +53,9 @@
                         @endif
                     </tbody>
                 </table>
+            </div>
+            <div class="cart-actions">
+                <a href="" class="btn btn-primary">Go to Checkout</a>
             </div>
         </div>
     </main>
