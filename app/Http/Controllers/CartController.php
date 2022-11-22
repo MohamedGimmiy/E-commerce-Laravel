@@ -45,6 +45,7 @@ class CartController extends Controller
 
     public function checkItemInCart($item)
     {
+
         foreach(session()->get('cart') as $key => $val){
             if($val['product']['id'] == $item['product']['id'] && $val['color']['id'] == $item['color']['id']){
                 return $key;

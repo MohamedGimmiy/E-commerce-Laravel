@@ -32,4 +32,9 @@ class pagesController extends Controller
         $product  = Product::with('category', 'colors')->findOrFail($id);
         return view('pages.product', compact('product'));
     }
+
+    public function checkout()
+    {
+        return view('pages.checkout');
+    }
 }

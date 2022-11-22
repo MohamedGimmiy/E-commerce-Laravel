@@ -17,10 +17,14 @@ class Cart
     public static function totalAmount()
     {
         $total = 0;
-        foreach(session('cart') as $item){
-            // when you call static method from a static method
-            $total += self::unitPrice($item);
+        if(session()->has('cart')){
+
+            foreach(session('cart') as $item){
+                // when you call static method from a static method
+                $total += self::unitPrice($item);
+            }
+            return $total;
         }
-        return $total;
+        return 0;
     }
 }
