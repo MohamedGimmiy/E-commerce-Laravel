@@ -42,7 +42,7 @@ class CartController extends Controller
         return back()->with('addedToCart', 'success ! Product Has Been Added To Cart');
     }
 
-    
+
     public function checkItemInCart($item)
     {
         foreach(session()->get('cart') as $key => $val){
@@ -51,5 +51,17 @@ class CartController extends Controller
             }
         }
         return -1;
+    }
+
+
+    public function removeFromCart($key)
+    {
+        if(session()->has('cart')){
+            $cart = session()->get('cart');
+            array_splice($cart, $key, 1);
+            session()->put('cart', $cart);
+            return back()->with('success', 'Product Removed From Cart');
+        }
+        return back();
     }
 }

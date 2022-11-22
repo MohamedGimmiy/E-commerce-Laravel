@@ -385,6 +385,7 @@ body {
   z-index: 11;
 }
 .pop-up .pop-up-box {
+  background: rgba(255, 255, 255, 0.8);
   padding: 100px;
   text-align: center;
   border-radius: 11px;
@@ -446,6 +447,10 @@ body {
   font-size: 20px;
   font-weight: 600;
   color: #260064;
+}
+.cart-page .table tbody .empty-cart {
+  text-align: center;
+  font-weight: 600;
 }
 .cart-page .cart-actions {
   display: flex;

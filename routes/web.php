@@ -28,6 +28,7 @@ Route::get('products/{id}', [pagesController::class, 'product'])->name('product'
 
 // Cart Routes
 Route::post('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('addToCart');
+Route::post('remove-from-cart/{id}', [CartController::class, 'removeFromCart'])->name('removeFromCart');
 
 
 // Auth
