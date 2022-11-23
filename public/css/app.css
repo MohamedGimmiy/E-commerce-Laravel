@@ -474,3 +474,18 @@ body {
   max-width: 100%;
   margin: 0 auto;
 }
+
+.page-success {
+  padding: 70px 0;
+  text-align: center;
+}
+.page-success h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #260064;
+}
+.page-success h2 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #6100ff;
+}

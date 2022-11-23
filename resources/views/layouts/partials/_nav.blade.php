@@ -1,5 +1,7 @@
 <nav class="menu">
-    <img src="{{asset('img/logo.svg')}}" alt="" class="logo">
+    <a href="{{route('home')}}">
+        <img src="{{asset('img/logo.svg')}}" alt="" class="logo">
+    </a>
     <ul>
         <li><a href="{{route('home')}}">
             <svg  width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M946.5 505L534.6 93.4a31.93 31.93 0 0 0-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3c0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8c24.9-25 24.9-65.5-.1-90.5z"/></svg>
@@ -10,7 +12,7 @@
             </a>
         </li>
         <li><a href="{{route('cart')}}">
-            <span class="info-count">3</span>
+            <span class="info-count">{{session()->has('cart')? count(session('cart')) : 0}}</span>
             <svg  width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921z"/><circle cx="10.5" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="19.5" r="1.5" fill="currentColor"/></svg>
             </a>
         </li>

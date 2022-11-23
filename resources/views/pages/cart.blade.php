@@ -66,9 +66,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="cart-actions">
-                <a href="{{route('checkout')}}" class="btn btn-primary">Go to Checkout</a>
-            </div>
+            @if (session()->has('cart') && count(session('cart')) > 0)
+                <div class="cart-actions">
+                    <a href="{{route('checkout')}}" class="btn btn-primary">Go to Checkout</a>
+                </div>
+            @endif
         </div>
     </main>
 @endsection

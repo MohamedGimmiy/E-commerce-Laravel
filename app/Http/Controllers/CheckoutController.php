@@ -69,6 +69,6 @@ class CheckoutController extends Controller
             ]);
         }
         session()->forget('cart');
-        return redirect()->route('success', compact('order'));
+        return view('pages.orderSuccess',compact('order'));
     }
 }
