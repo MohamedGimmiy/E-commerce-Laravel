@@ -30,9 +30,9 @@
                                     <td>{{\Carbon\Carbon::parse($order->created_at)->format('d/m/Y')}}</td>
                                     <td>
                                         <span class="badge bg-@if ($order->status == 'pending')warning
-                                            @elseif ($order->status == 'processing') info
-                                            @elseif ($order->status == 'shipped') 'success'
-                                            @elseif ($order->status == 'cancelled') danger
+                                            @elseif ($order->status == 'processing')info
+                                            @elseif ($order->status == 'shipped')success
+                                            @elseif ($order->status == 'cancelled')danger
                                         @endif">{{$order->status}}</span>
 
                                         </td>

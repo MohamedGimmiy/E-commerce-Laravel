@@ -50,7 +50,7 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-stripped">
-                            <thead>
+                            <thead class="text-center">
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Code</th>
@@ -60,13 +60,14 @@
                             </thead>
                             <tbody>
                                 @foreach ($colors as $color)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{$color->id}}</td>
                                     <td>{{$color->name}}</td>
+                                    <td>{{$color->created_at}}</td>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
                                             {{$color->code}}
-                                            <span style="display: inline-block; width:30px; border-radius: 50%; height: 30px; background: {{$color->code}}"></span>
+                                            <span style="border: 1px solid black; display: inline-block; width:30px; border-radius: 50%; height: 30px; background: {{$color->code}}"></span>
                                         </div>
                                     </td>
                                     <td>{{\Carbon\Carbon::parse($color->created_at)->format('d/m/Y')}}</td>

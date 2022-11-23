@@ -39,7 +39,7 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-stripped">
-                            <thead>
+                            <thead class="text-center">
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Total Products</th>
@@ -48,10 +48,10 @@
                             </thead>
                             <tbody>
                                 @foreach ($categories as $category)
-                                <tr>
+                                <tr class="text-center">
                                     <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
-                                    <td></td>
+                                    <td>{{$category->products->count()}}</td>
                                     <td>{{\Carbon\Carbon::parse($category->created_at)->format('d/m/Y')}}</td>
                                     <td>
                                         <form action="{{route('adminpanel.category.destroy', $category->id)}}" method="post">

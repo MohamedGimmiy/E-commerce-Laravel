@@ -17,7 +17,15 @@ class OrderController extends Controller
 
     public function view($id)
     {
+        $states = ['pending', 'processing', 'shipped', 'cancelled'];
         $order = Order::with('user','items','items.product','items.color')->findOrFail($id);
-        return view('admin.pages.orders.view', compact('order'));
+        return view('admin.pages.orders.view', compact('order','states'));
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        Order::findOrFail($id)->update($request->all());
+
+        return back();
     }
 }

@@ -1,6 +1,8 @@
 <aside class="side-nav">
 <div class="logo">
-    <img src="{{asset('img/logo.svg')}}" alt="">
+    <a href="{{route('home')}}">
+        <img src="{{asset('img/logo.svg')}}" alt="">
+    </a>
     ADMINPANEL
 </div>
 <ul>
