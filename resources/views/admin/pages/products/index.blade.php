@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('title','products')
 @section('content')
+<h1 class="page-title">Products</h1>
+
     <div class="container">
         <div class="text-end mb-3">
             <a href="{{route('adminpanel.products.create')}}" class="btn btn-primary">+ &nbsp; Create Product</a>
@@ -39,13 +41,13 @@
                                     </td>
                                     <td>
                                         <img src="{{asset('storage/' . $product->image)}}" alt="" style="height: 40px">
-                                    </td>  
+                                    </td>
                                     <td>{{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}</td>
                                     <td>
 
                                         <div class="d-flex" style="gap: 5px;">
                                             <a href="{{route('adminpanel.products.edit', $product->id)}}" class="btn btn-secondary">Edit</a>
-                                            
+
                                             <form action="{{route('adminpanel.products.destroy', $product->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')

@@ -8,7 +8,7 @@
     <li><a href="{{route('adminpanel.products')}}">Products</a></li>
     <li><a href="{{route('adminpanel.categories')}}">Categories</a></li>
     <li><a href="{{route('adminpanel.colors')}}">Colors</a></li>
-    <li><a href="">Orders</a></li>
+    <li><a href="{{route('adminpanel.orders')}}">Orders</a></li>
 </ul>
 
 <div class="logout">

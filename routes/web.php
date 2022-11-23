@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\ProductController;
@@ -74,6 +75,11 @@ Route::group(['prefix' => 'adminpanel', 'middleware' => 'admin'],function (){
         Route::get('/', [ColorsController::class, 'index'])->name('adminpanel.colors');
         Route::post('/', [ColorsController::class, 'store'])->name('adminpanel.color.store');
         Route::delete('/{id}', [ColorsController::class, 'destroy'])->name('adminpanel.color.destroy');
+    });
+    // orders
+    Route::group(['prefix' => 'orders'], function (){
+        Route::get('/', [OrderController::class, 'index'])->name('adminpanel.orders');
+        Route::get('/{id}', [OrderController::class, 'view'])->name('adminpanel.orders.view');
     });
 
 });
