@@ -37,4 +37,8 @@ class pagesController extends Controller
     {
         return view('pages.checkout');
     }
+    public function success()
+    {
+        return 'Successfully Done!';
+    }
 }

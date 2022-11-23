@@ -41,8 +41,8 @@ npm install @popperjs/core --save-dev
 // create a symbolic link for storage to access storage folders
 php artisan storage:link
 
-
-
+// note for stripe integration
+payment card code is 424242424242 for testing
 
 
 

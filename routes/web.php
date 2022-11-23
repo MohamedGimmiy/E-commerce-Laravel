@@ -22,6 +22,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [pagesController::class, 'home'])->name('home');
+Route::get('/success', [pagesController::class, 'success'])->name('success');
 Route::get('cart', [pagesController::class, 'cart'])->name('cart');
 Route::get('wish-list', [pagesController::class, 'wishlist'])->name('wishlist');
 Route::get('account', [pagesController::class, 'account'])->name('account')->middleware('auth');

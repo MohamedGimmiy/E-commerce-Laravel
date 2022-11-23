@@ -19,7 +19,7 @@
             background: white;
             color: #6100ff;
         }
-        
+
     </style>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="{{asset('js/stripe.js')}}"></script>
@@ -113,7 +113,7 @@
         </div>
     </main>
     <script>
-        const stripe = Stripe('yp5TRLS3CdUxjiurh5dCz8n2wzZtOQ2Iz7900fQ0qIydO');
+        const stripe = Stripe('pk_test_51M71dhLlETGUHA9PivZFeJYuTXC5mrxzqOfhNpwupiOTJkwCSZ0qpyp5TRLS3CdUxjiurh5dCz8n2wzZtOQ2Iz7900fQ0qIydO');
 
         const elements = stripe.elements();
         const cardElement = elements.create('card');
