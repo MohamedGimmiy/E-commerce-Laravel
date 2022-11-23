@@ -44,5 +44,6 @@ php artisan storage:link
 // note for stripe integration
 payment card code is 424242424242 for testing
 
-
+// create model with controller and migration
+php artisan make:model Order -c -m
 
