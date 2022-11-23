@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Illuminate\Http\Request;
@@ -13,10 +14,14 @@ class CheckoutController extends Controller
     public function stripeCheckout(Request $request)
     {
 
+        $request->validate([
+            'payment_method_id' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'address' => 'required|max:255'
+        ]);
 
         Stripe::setApiKey('');
-
-
 
         try {
             // Create the PaymentIntent
@@ -39,7 +44,31 @@ class CheckoutController extends Controller
             echo json_encode(['error' => $e->getMessage()]);
         }
         // store order in db before redirect user
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'country' => $request->country,
+            'state' => $request->state,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'strip_id' => $request->payment_method_id,
+            'status' => 'pending',
+            'total' => Cart::totalAmount()
+        ]);
 
-        return redirect()->route('success');
+        // store each ordered item of our cart in db (item table)
+        foreach (session()->get('cart') as $item)
+        {
+            $order->items()->create([
+                'product_id' => $item['product']['id'],
+                'quantity' => $item['quantity'],
+                'color_id' => $item['color']['id'],
+            ]);
+        }
+        session()->forget('cart');
+        return redirect()->route('success', compact('order'));
     }
 }
