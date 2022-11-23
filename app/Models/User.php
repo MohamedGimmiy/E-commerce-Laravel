@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function orders()
     {
-        $this->hasMany(Order::class);
+        return $this->hasMany(Order::class);
     }
 }
