@@ -1,7 +1,11 @@
-<a href="{{ route('product', $product->id)}}" class="product-box">
+<section class="product-box">
     <div class="image">
         <img src="{{asset('storage/' . $product->image)}}" alt="">
+        <form action="" method="POST">
+            <button class="add-to-wishlist" type="submit">Add To Wishlist</button>
+        </form>
     </div>
+    <a href="{{ route('product', $product->id)}}" >
     <div class="product-title">
         {{$product->title}}
     </div>
@@ -18,3 +22,4 @@
         ${{$product->price /100}}
     </div>
 </a>
+</section>

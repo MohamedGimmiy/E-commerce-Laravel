@@ -46,4 +46,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    //  user has many products through intermediate table
+    public function wishlist()
+    {
+        return $this->belongsToMany(Product::class, 'wishlists');
+    }
+
 }

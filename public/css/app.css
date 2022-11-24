@@ -346,7 +346,6 @@ body {
   box-shadow: 0 8px 40px 0 rgba(49, 32, 138, 0.05);
   text-align: center;
   max-width: 270px;
-  text-decoration: none;
   transition: all 0.4s ease;
 }
 .product-box:hover {
@@ -354,6 +353,26 @@ body {
 }
 .product-box:hover .image {
   background: linear-gradient(to bottom right, #6100ff, #d38eff);
+}
+.product-box:hover .image .add-to-wishlist {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 200px;
+  padding: 10px 25px;
+  max-width: 90%;
+  width: 200px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.product-box:hover .image .add-to-wishlist:hover {
+  background: #fb2e86;
+  color: #fff;
 }
 .product-box .image {
   background: #f6f7f8;
@@ -365,10 +384,17 @@ body {
   justify-content: center;
   margin-bottom: 10px;
   transition: all 0.3s ease;
+  position: relative;
 }
 .product-box .image img {
   max-width: 100%;
   max-height: 100%;
+}
+.product-box .image .add-to-wishlist {
+  display: none;
+}
+.product-box a {
+  text-decoration: none;
 }
 .product-box .product-title {
   font-size: 18px;
